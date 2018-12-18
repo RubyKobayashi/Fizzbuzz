@@ -1,6 +1,9 @@
 require_relative '../lib/fizzbuzz'
 
 describe 'fizzbuzz' do
+  it 'returns "7" when passed 7' do
+    expect(fizzbuzz(7)).to eq 7
+  end
   it 'returns "fizzbuzz" when passed 30' do
     expect(fizzbuzz(30)).to eq 'fizzbuzz'
   end
