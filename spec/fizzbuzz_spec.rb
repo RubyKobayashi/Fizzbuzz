@@ -13,4 +13,8 @@ describe 'fizzbuzz' do
   it 'returns "buzz" when passed 5' do
     expect(fizzbuzz(5)).to eq 'buzz'
   end
+  it 'returns "not a number" when passed "string"' do
+    expect(fizzbuzz('string')).to eq 'not a number'
+  end
+
 end
