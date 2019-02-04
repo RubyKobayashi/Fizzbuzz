@@ -1,22 +1,25 @@
-function Player() {
+function FizzBuzz() {
 }
-Player.prototype.play = function(song) {
-  this.currentlyPlayingSong = song;
-  this.isPlaying = true;
-};
 
-Player.prototype.pause = function() {
-  this.isPlaying = false;
-};
-
-Player.prototype.resume = function() {
-  if (this.isPlaying) {
-    throw new Error("song is already playing");
+FizzBuzz.prototype.play = function(number) {
+  if (this._isDivisibleBy(15, number)) {
+    return 'FizzBuzz';
+  } else if (this._isDivisibleBy(5, number)) {
+    return 'Buzz';
+  } else if (this._isDivisibleBy(3, number)) {
+    return 'Fizz';
+  } else {
+    return number;
   }
+}
 
-  this.isPlaying = true;
-};
+FizzBuzz.prototype._isDivisibleBy = function(divisor, number) {
+  return number % divisor === 0;
+}
 
-Player.prototype.makeFavorite = function() {
-  this.currentlyPlayingSong.persistFavoriteStatus(true);
-};
+
+var fizzBuzz = new FizzBuzz();
+
+for (var i = 1; i <= 100; i++) {
+  console.log(fizzBuzz.play(i));
+}
